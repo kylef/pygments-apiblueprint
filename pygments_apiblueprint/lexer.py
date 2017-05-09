@@ -1,3 +1,5 @@
+import re
+
 from pygments.lexer import inherit, bygroups
 from pygments.token import *
 from pygments_markdown_lexer.lexer import MarkdownLexer, Markdown
@@ -43,3 +45,12 @@ class APIBlueprintLexer(MarkdownLexer):
             inherit
         ]
     }
+
+    def analyse_text(text):
+        if text.startswith('FORMAT: 1A\n'):
+            return 1.0
+
+        if re.search(r'^[-*+]\s+Response\s+\d\d\d', text):
+            return 0.9
+
+        return 0.0

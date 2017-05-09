@@ -30,3 +30,7 @@ result = highlight(source, lexer, formatter)
 
 print(result)
 ```
+
+## Example
+
+![](pygments_apiblueprint.png)

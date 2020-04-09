@@ -8,7 +8,7 @@ setup(
     description='An API Blueprint Lexer for Pygments.',
     url='https://github.com/kylef/pygments-apiblueprint',
     packages=['pygments_apiblueprint'],
-    install_requires=['pygments-markdown-lexer'],
+    install_requires=['Pygments'],
     entry_points = {
         'pygments.lexers': ['apiblueprint = pygments_apiblueprint.lexer:APIBlueprintLexer'],
     },

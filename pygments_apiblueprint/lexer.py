@@ -1,8 +1,8 @@
 import re
 
 from pygments.lexer import inherit, bygroups
+from pygments.lexers.markup import MarkdownLexer
 from pygments.token import *
-from pygments_markdown_lexer.lexer import MarkdownLexer, Markdown
 
 
 class APIBlueprintLexer(MarkdownLexer):
@@ -19,28 +19,28 @@ class APIBlueprintLexer(MarkdownLexer):
 
             # Resource Group
             (r'^(#+)(\s*Group\s+)(.*)$',
-                bygroups(Markdown.Markup, Keyword, Generic.Heading)),
+                bygroups(Keyword, Keyword, Generic.Heading)),
 
             # Resource \ Action
             (r'^(#+)(.+)(\[)(.+)(\])$',
-                bygroups(Markdown.Markup, Markdown.Heading, Markdown.Markup, Name.Variable, Markdown.Markup)),
+                bygroups(Keyword, Generic.Heading, Keyword, Name.Variable, Keyword)),
 
             # Parameters / Attributes
             (r'^(\s*[\+\-\*]\s*)([Aa]ttributes|[Pp]arameters)(.*)$',
-                bygroups(Markdown.Markup, Keyword, Literal)),
+                bygroups(Keyword, Keyword, Literal)),
             (r'^(\s*[\+\-\*]\s*)([`\w]+)(:\s*)(.*)$',
-                bygroups(Markdown.Markup, Name.Variable, Operator, Literal)),
+                bygroups(Keyword, Name.Variable, Operator, Literal)),
 
             # Request
             (r'^(\s*[\+\-\*]\s*)(Request)(?:(\s*\()(.*)(\)))?$',
-                bygroups(Markdown.Markup, Keyword, Markdown.Markup, Name.Variable, Markdown.Markup)),
+                bygroups(Keyword, Keyword, Keyword, Name.Variable, Keyword)),
 
             (r'^(\s*[\+\-\*]\s*)(Body|Headers)$',
-                bygroups(Markdown.Markup, Keyword)),
+                bygroups(Keyword, Keyword)),
 
             # Response
             (r'^(\s*[\+\-\*]\s*)(Response)(\s+)(\d\d\d)(?:(\s*\()(.*)(\)))?$',
-                bygroups(Markdown.Markup, Keyword, Number, Literal, Markdown.Markup, Name.Variable, Markdown.Markup)),
+                bygroups(Keyword, Keyword, Number, Literal, Keyword, Name.Variable, Keyword)),
 
             inherit
         ]

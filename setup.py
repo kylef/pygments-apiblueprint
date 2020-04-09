@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='pygments-apiblueprint',
-    version='0.1.0',
+    version='0.2.0',
     description='An API Blueprint Lexer for Pygments.',
     url='https://github.com/kylef/pygments-apiblueprint',
     packages=['pygments_apiblueprint'],
